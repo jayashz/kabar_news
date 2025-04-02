@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kabar_news/common/bloc/assets.dart';
 import 'package:kabar_news/common/bloc/common_state.dart';
+import 'package:kabar_news/features/auth/ui/screens/login_page.dart';
 import 'package:kabar_news/features/homepage/pages/homepage.dart';
 import 'package:kabar_news/features/splash/cubit/startup_cubit.dart';
 import 'package:kabar_news/features/splash/model/startup_data.dart';
@@ -21,7 +22,7 @@ class SplashWidget extends StatelessWidget {
                 context,
                 PageTransition(
                   type: PageTransitionType.fade,
-                  child: Homepage(),
+                  child: LoginPage(),
                 ),
               );
             }
