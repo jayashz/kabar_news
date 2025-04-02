@@ -9,7 +9,9 @@ class StartupCubit extends Cubit<CommonState> {
   init() async {
     emit(CommonLoadingState());
     await Future.delayed(Duration(seconds: 2));
+
     final isLoggedIn = userRepo.token.isNotEmpty;
+
     final param = StartupData(isLoggedIn: isLoggedIn);
     emit(CommonSuccessState(data: param));
   }

@@ -1,5 +1,5 @@
 class UserRepository {
-  String _token = 'asdfs';
+  final _token = 'asdfs';
 
   String get token => _token;
 }

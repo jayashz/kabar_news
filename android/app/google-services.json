@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "873033576605",
+    "project_id": "kabar-news-6ba82",
+    "storage_bucket": "kabar-news-6ba82.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873033576605:android:1d50d00bbbaa600b63e474",
+        "android_client_info": {
+          "package_name": "com.example.kabar_news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873033576605-qgbk0luihts2c4u7ugvm7jop8tjb2b6a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBat2sLpBMvTYZKxljhRvUa-Znm5Lo9MpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873033576605-qgbk0luihts2c4u7ugvm7jop8tjb2b6a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "873033576605-rp12ek0kurqbrgjtm3co5kg5jhg267h8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kabarNews"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

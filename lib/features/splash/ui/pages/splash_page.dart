@@ -11,7 +11,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          StartupCubit(userRepo: context.read<UserRepository>()),
+          StartupCubit(userRepo: context.read<UserRepository>())..init(),
       child: const SplashWidget(),
     );
   }
