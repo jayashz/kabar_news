@@ -17,12 +17,20 @@ class SplashWidget extends StatelessWidget {
       body: BlocListener<StartupCubit, CommonState>(
         listener: (context, state) {
           if (state is CommonSuccessState<StartupData>) {
-            if (state.data.isLoggedIn) {
+            if (state.data.isLoggedIn == false) {
               Navigator.push(
                 context,
                 PageTransition(
                   type: PageTransitionType.fade,
                   child: LoginPage(),
+                ),
+              );
+            } else {
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.fade,
+                  child: Homepage(),
                 ),
               );
             }

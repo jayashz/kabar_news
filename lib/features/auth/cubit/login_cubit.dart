@@ -9,6 +9,6 @@ class LoginCubit extends Cubit<CommonState> {
   login({required String email, required String password}) async {
     emit(CommonLoadingState());
     final res = await userRepo.signIn(email: email, password: password);
-    print(res);
+
   }
 }

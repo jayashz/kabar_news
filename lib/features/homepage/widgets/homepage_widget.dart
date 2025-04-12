@@ -6,11 +6,7 @@ class HomepageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Center(
-          child: Text("Heres the center widget at homepage"),
-        ),
-      ),
+      body: Center(child: Text("This is the homepage")),
     );
   }
 }
