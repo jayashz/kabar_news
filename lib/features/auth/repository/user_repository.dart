@@ -30,10 +30,17 @@ class UserRepository {
     }
   }
 
-  Future<UserCredential> createAccount(
+  Future<Either<String, UserCredential>> createAccount(
       {required String email, required String password}) async {
-    return await firebaseAuth.createUserWithEmailAndPassword(
-        email: email, password: password);
+    try {
+      final res = await firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      return Right(res);
+    } on FirebaseAuthException catch (e) {
+      return Left(e.message ?? "Error in signup");
+    } catch (e) {
+      return Left("Unable to create account");
+    }
   }
 
   Future<void> logout() async {
