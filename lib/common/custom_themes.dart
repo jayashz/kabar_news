@@ -39,6 +39,9 @@ class CustomThemes {
         foregroundColor: Color.fromRGBO(24, 119, 242, 1),
       ),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      fillColor: Colors.white,
+    ),
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -82,6 +85,9 @@ class CustomThemes {
         foregroundColor: Color.fromRGBO(24, 119, 242, 1),
         textStyle: const TextStyle(letterSpacing: 0.12),
       ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      fillColor: Color(0xFF3A3B3C),
     ),
   );
 }
