@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kabar_news/common/custom_themes.dart';
 
 class CustomSearchfield extends StatelessWidget {
   const CustomSearchfield({super.key});
@@ -12,10 +11,13 @@ class CustomSearchfield extends StatelessWidget {
         fillColor: Theme.of(context).inputDecorationTheme.fillColor,
         hintText: 'Search',
         prefixIcon: const Icon(Icons.search),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: BorderSide.none,
+        suffixIcon: IconButton(
+          icon: const Icon(Icons.settings),
+          onPressed: () {
+            // Handle clear button press
+          },
         ),
+        border: OutlineInputBorder(),
       ),
     );
   }

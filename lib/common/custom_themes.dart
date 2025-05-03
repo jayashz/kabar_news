@@ -42,6 +42,12 @@ class CustomThemes {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: Colors.white,
     ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.white,
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
+    ),
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -88,6 +94,12 @@ class CustomThemes {
     ),
     inputDecorationTheme: InputDecorationTheme(
       fillColor: Color(0xFF3A3B3C),
+    ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.black,
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
     ),
   );
 }
