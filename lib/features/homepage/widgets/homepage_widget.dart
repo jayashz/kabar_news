@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:kabar_news/common/bloc/assets.dart';
 import 'package:kabar_news/common/custom_widgets/cards/trending_cards.dart';
 import 'package:kabar_news/common/custom_widgets/custom_searchfield.dart';

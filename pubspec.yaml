@@ -46,7 +46,7 @@ dependencies:
   email_validator: ^3.0.0
   fluttertoast: ^8.2.12
   go_router: ^15.1.1
-  bottom_navy_bar: ^6.1.0
+  flutter_dotenv: ^5.2.1
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +73,7 @@ flutter:
   assets:
     - assets/logo/
     - assets/images/
+    - keys.env
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
