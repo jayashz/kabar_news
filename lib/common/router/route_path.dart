@@ -11,4 +11,5 @@ class RoutePath {
   static const String contact = '/contact';
   static const String details = '/details';
   static const String trending = '/trending';
+  static const String search = '/search';
 }

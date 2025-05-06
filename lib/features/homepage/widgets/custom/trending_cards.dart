@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:kabar_news/common/bloc/assets.dart';
 import 'package:kabar_news/common/router/route_path.dart';
 import 'package:kabar_news/features/homepage/model/news.dart';
@@ -12,11 +12,10 @@ class TrendingCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(news.author);
-
     return InkWell(
       onTap: () => context.push(RoutePath.details, extra: news),
       child: Container(
+        constraints: BoxConstraints(minHeight: 200),
         padding: const EdgeInsets.all(8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +26,11 @@ class TrendingCards extends StatelessWidget {
                   ? Image.network(
                       news.urlToImage!,
                       errorBuilder: (context, error, stackTrace) {
-                        return Image.asset(Assets.noImage);
+                        return Image.asset(
+                          Assets.noImage,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        );
                       },
                       loadingBuilder: (context, child, loadingProgress) {
                         if (loadingProgress == null) return child;
@@ -62,13 +65,13 @@ class TrendingCards extends StatelessWidget {
                   news.source.name,
                   style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
                 ),
-                Gap(12),
+                Spacer(),
                 Icon(
                   Icons.timelapse_rounded,
                   size: 17,
                 ),
                 Text(
-                  "4hr ago",
+                  DateFormat('yMMMd').format(news.publishedAt),
                   style: Theme.of(context).textTheme.labelSmall,
                 ),
               ],

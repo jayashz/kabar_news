@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomSearchfield extends StatelessWidget {
-  const CustomSearchfield({super.key});
+  void Function(String) onSubmitted;
+  CustomSearchfield({super.key, required this.onSubmitted});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onSubmitted: (value) => onSubmitted(value),
       decoration: InputDecoration(
         filled: true,
         fillColor: Theme.of(context).inputDecorationTheme.fillColor,

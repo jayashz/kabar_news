@@ -35,7 +35,10 @@ class TrendingWidget extends StatelessWidget {
               itemCount: state.data.length,
               itemBuilder: (context, index) {
                 final news = state.data[index];
-                return TrendingCards(news: news);
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: TrendingCards(news: news),
+                );
               },
             );
           }

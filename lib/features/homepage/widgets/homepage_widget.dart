@@ -43,7 +43,9 @@ class HomepageWidget extends StatelessWidget {
                     padding: const EdgeInsets.all(24),
                     child: Column(
                       children: [
-                        const CustomSearchfield(),
+                        CustomSearchfield(onSubmitted: (query) {
+                          context.push(RoutePath.search, extra: query);
+                        }),
                         // Add your other widgets here
                         const SizedBox(height: 20),
                         Row(
@@ -69,7 +71,9 @@ class HomepageWidget extends StatelessWidget {
                               style: TextStyle(fontWeight: FontWeight.w600),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                context.push(RoutePath.trending);
+                              },
                               child: Text(
                                 "See all",
                                 style: TextStyle(fontWeight: FontWeight.w600),
