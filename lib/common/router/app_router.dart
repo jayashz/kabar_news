@@ -11,6 +11,8 @@ import 'package:kabar_news/features/homepage/pages/homepage.dart';
 import 'package:kabar_news/features/homepage/repository/news_repository.dart';
 import 'package:kabar_news/features/profile/ui/pages/profile_page.dart';
 import 'package:kabar_news/features/splash/ui/pages/splash_page.dart';
+import 'package:kabar_news/features/trending/cubit/fetch_trending_cubit.dart';
+import 'package:kabar_news/features/trending/ui/pages/trending_page.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/splash',
@@ -55,6 +57,15 @@ final GoRouter router = GoRouter(
       builder: (context, state) {
         final News news = state.extra as News;
         return DetailsPage(news: news);
+      },
+    ),
+    GoRoute(
+      path: "/trending",
+      builder: (context, state) {
+        return BlocProvider(
+          create: (context) => FetchTrendingCubit(),
+          child: TrendingPage(),
+        );
       },
     ),
   ],

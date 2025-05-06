@@ -12,6 +12,8 @@ class TrendingCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(news.author);
+
     return InkWell(
       onTap: () => context.push(RoutePath.details, extra: news),
       child: Container(
@@ -22,7 +24,22 @@ class TrendingCards extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: news.urlToImage != null
-                  ? Image.network(news.urlToImage!)
+                  ? Image.network(
+                      news.urlToImage!,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Image.asset(Assets.noImage);
+                      },
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return SizedBox(
+                          height: 200,
+                          width: double.infinity,
+                          child: const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
+                      },
+                    )
                   : Image.asset(Assets.noImage),
             ),
             const SizedBox(height: 8),

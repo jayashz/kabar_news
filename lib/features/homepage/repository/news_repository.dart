@@ -19,4 +19,19 @@ class NewsRepository {
       return Left("Unable to fetch news");
     }
   }
+
+  Future<Either<String, List<News>>> fetchTrending() async {
+    // Simulate a network cal
+    try {
+      final res = await _dio.get(
+          'https://newsapi.org/v2/everything?q=tesla&from=2025-04-06&sortBy=publishedAt&apiKey=${dotenv.env['News_API_Key']}');
+
+      final tempNews =
+          List.from(res.data['articles']).map((e) => News.fromJson(e)).toList();
+
+      return Right(tempNews);
+    } catch (e) {
+      return Left("Unable to fetch news");
+    }
+  }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kabar_news/common/bloc/assets.dart';
 import 'package:kabar_news/common/bloc/common_state.dart';
+import 'package:kabar_news/common/router/route_path.dart';
 import 'package:kabar_news/features/homepage/widgets/custom/trending_cards.dart';
 import 'package:kabar_news/common/custom_widgets/custom_searchfield.dart';
 import 'package:kabar_news/features/homepage/cubit/fetch_news_cubit.dart';
@@ -49,7 +51,10 @@ class HomepageWidget extends StatelessWidget {
                           children: [
                             Text("Trending"),
                             TextButton(
-                                onPressed: () {}, child: Text("See all")),
+                                onPressed: () {
+                                  context.push(RoutePath.trending);
+                                },
+                                child: Text("See all")),
                           ],
                         ),
                         const SizedBox(height: 20),
