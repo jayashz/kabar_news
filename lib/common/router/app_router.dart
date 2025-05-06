@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kabar_news/features/bookmark/ui/pages/bookmark_page.dart';
 import 'package:kabar_news/features/dashboard/widgets/dashboard.dart';
+import 'package:kabar_news/features/details/ui/pages/details_page.dart';
 import 'package:kabar_news/features/explore/pages/explore_page.dart';
+import 'package:kabar_news/features/homepage/cubit/fetch_news_cubit.dart';
+import 'package:kabar_news/features/homepage/model/news.dart';
 import 'package:kabar_news/features/homepage/pages/homepage.dart';
+import 'package:kabar_news/features/homepage/repository/news_repository.dart';
 import 'package:kabar_news/features/profile/ui/pages/profile_page.dart';
 import 'package:kabar_news/features/splash/ui/pages/splash_page.dart';
 
@@ -26,7 +31,11 @@ final GoRouter router = GoRouter(
         routes: [
           GoRoute(
             path: "/home",
-            builder: (context, state) => const Homepage(),
+            builder: (context, state) => BlocProvider(
+              create: (context) => FetchNewsCubit(
+                  newsRepository: context.read<NewsRepository>()),
+              child: const Homepage(),
+            ),
           ),
           GoRoute(
             path: "/explore",
@@ -40,6 +49,13 @@ final GoRouter router = GoRouter(
             path: "/profile",
             builder: (context, state) => const ProfilePage(),
           ),
-        ])
+        ]),
+    GoRoute(
+      path: "/details",
+      builder: (context, state) {
+        final News news = state.extra as News;
+        return DetailsPage(news: news);
+      },
+    ),
   ],
 );

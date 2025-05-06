@@ -8,4 +8,5 @@ class RoutePath {
   static const String settings = '/settings';
   static const String about = '/about';
   static const String contact = '/contact';
+  static const String details = '/details';
 }

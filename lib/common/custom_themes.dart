@@ -18,6 +18,11 @@ class CustomThemes {
         fontSize: 16,
         color: Colors.black,
       ),
+      labelLarge: TextStyle(
+        fontSize: 16,
+        color: Colors.black,
+        fontWeight: FontWeight.w600,
+      ),
       labelMedium: TextStyle(
         fontSize: 16,
         color: Color(0xFFFFFFFF),
@@ -66,6 +71,11 @@ class CustomThemes {
       bodyMedium: TextStyle(
         fontSize: 16,
         color: Color(0xFF4E4B66),
+      ),
+      labelLarge: TextStyle(
+        fontSize: 16,
+        color: Colors.white,
+        fontWeight: FontWeight.w600,
       ),
       labelMedium: TextStyle(
         fontSize: 16,
