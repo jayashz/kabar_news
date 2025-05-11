@@ -10,6 +10,7 @@ import 'package:kabar_news/features/homepage/model/news.dart';
 import 'package:kabar_news/features/homepage/pages/homepage.dart';
 import 'package:kabar_news/features/homepage/repository/news_repository.dart';
 import 'package:kabar_news/features/profile/ui/pages/profile_page.dart';
+import 'package:kabar_news/features/search/cubit/search_new_cubit.dart';
 import 'package:kabar_news/features/search/ui/pages/search_page.dart';
 import 'package:kabar_news/features/splash/ui/pages/splash_page.dart';
 import 'package:kabar_news/features/trending/cubit/fetch_trending_cubit.dart';
@@ -73,7 +74,12 @@ final GoRouter router = GoRouter(
       path: "/search",
       builder: (context, state) {
         final query = state.extra as String;
-        return SearchPage();
+        return BlocProvider(
+          create: (context) => SearchNewCubit(),
+          child: SearchPage(
+            query: query,
+          ),
+        );
       },
     )
   ],

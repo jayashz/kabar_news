@@ -28,6 +28,23 @@ class CustomListtile extends StatelessWidget {
                     ? Image.network(
                         news.urlToImage!,
                         fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Image.asset(
+                            Assets.noImage,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                          );
+                        },
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return SizedBox(
+                            height: 200,
+                            width: double.infinity,
+                            child: const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          );
+                        },
                       )
                     : Image.asset(
                         Assets.noImage,
@@ -41,7 +58,8 @@ class CustomListtile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    news.title,
+                    news.title!,
+                    maxLines: 4,
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
                   Text(

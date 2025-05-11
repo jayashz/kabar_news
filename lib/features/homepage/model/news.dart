@@ -1,12 +1,12 @@
 class News {
   Source source;
-  String author;
-  String title;
-  String description;
-  String url;
-  String? urlToImage;
-  DateTime publishedAt;
-  String content;
+  final String? author;
+  final String? title;
+  final String? description;
+  final String? url;
+  final String? urlToImage;
+  final DateTime publishedAt;
+  final String? content;
 
   News({
     required this.source,
@@ -19,16 +19,18 @@ class News {
     required this.content,
   });
 
-  factory News.fromJson(Map<String, dynamic> json) => News(
-        source: Source.fromJson(json["source"]),
-        author: json["author"] ?? "Unknown",
-        title: json["title"] ?? "No title",
-        description: json["description"] ?? 'No description',
-        url: json["url"] ?? 'No url for this article',
-        urlToImage: json["urlToImage"],
-        publishedAt: DateTime.parse(json["publishedAt"]),
-        content: json["content"] ?? 'No content',
-      );
+  factory News.fromJson(Map<String, dynamic> json) {
+    return News(
+      source: Source.fromJson(json["source"]),
+      author: json["author"],
+      title: json["title"],
+      description: json["description"],
+      url: json["url"],
+      urlToImage: json["urlToImage"],
+      publishedAt: DateTime.parse(json["publishedAt"]),
+      content: json["content"],
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "source": source.toJson(),

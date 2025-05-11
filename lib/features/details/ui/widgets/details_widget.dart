@@ -65,14 +65,14 @@ class DetailsWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
-                news.author,
+                news.author!,
                 style: Theme.of(context).textTheme.labelSmall,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                news.title,
+                news.title!,
                 style: Theme.of(context).textTheme.displayLarge!.copyWith(
                       fontSize: 24,
                     ),
@@ -81,14 +81,14 @@ class DetailsWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
-                news.description,
+                news.description!,
                 style: Theme.of(context).textTheme.labelSmall,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                news.content,
+                news.content!,
                 style: Theme.of(context).textTheme.labelSmall,
               ),
             ),

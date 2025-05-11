@@ -47,11 +47,11 @@ class TrendingCards extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              news.author,
+              news.author!,
               style: Theme.of(context).textTheme.labelSmall,
             ),
             Text(
-              news.title,
+              news.title!,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(height: 4),
