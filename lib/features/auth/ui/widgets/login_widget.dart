@@ -86,8 +86,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                         if (val == null || val.isEmpty) {
                           return "Email field cannot be empty";
                         }
-                        final _isvalid = EmailValidator.validate(val);
-                        if (_isvalid) {
+                        final isvalid = EmailValidator.validate(val);
+                        if (isvalid) {
                           return null;
                         } else {
                           return "Enter valid email address";
@@ -116,25 +116,23 @@ class _LoginWidgetState extends State<LoginWidget> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          child: Row(
-                            children: [
-                              Checkbox(
-                                value: isChecked,
-                                fillColor:
-                                    Theme.of(context).checkboxTheme.fillColor,
-                                onChanged: (value) {
-                                  setState(() {
-                                    isChecked = value;
-                                  });
-                                },
-                              ),
-                              Text(
-                                "Remember me",
-                                style: Theme.of(context).textTheme.labelSmall,
-                              ),
-                            ],
-                          ),
+                        Row(
+                          children: [
+                            Checkbox(
+                              value: isChecked,
+                              fillColor:
+                                  Theme.of(context).checkboxTheme.fillColor,
+                              onChanged: (value) {
+                                setState(() {
+                                  isChecked = value;
+                                });
+                              },
+                            ),
+                            Text(
+                              "Remember me",
+                              style: Theme.of(context).textTheme.labelSmall,
+                            ),
+                          ],
                         ),
                         TextButton(
                           style: Theme.of(context).textButtonTheme.style,
@@ -231,20 +229,18 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                       ],
                     ),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "dont have an account?",
-                            style: Theme.of(context).textTheme.labelSmall,
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text("Sign Up"),
-                          )
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "dont have an account?",
+                          style: Theme.of(context).textTheme.labelSmall,
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text("Sign Up"),
+                        )
+                      ],
                     )
                   ],
                 ),

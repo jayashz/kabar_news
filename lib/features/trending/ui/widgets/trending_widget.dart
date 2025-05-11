@@ -22,7 +22,6 @@ class TrendingWidget extends StatelessWidget {
       ),
       body: SafeArea(child: BlocBuilder<FetchTrendingCubit, CommonState>(
         builder: (context, state) {
-          print(state is CommonSuccessState<List<News>>);
           if (state is CommonLoadingState) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is CommonErrorState) {

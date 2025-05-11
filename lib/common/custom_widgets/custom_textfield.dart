@@ -29,9 +29,9 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _theme = Theme.of(context);
-    final _textTheme = _theme.textTheme;
-    final ColorScheme clrScheme = _theme.colorScheme;
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final ColorScheme clrScheme = theme.colorScheme;
     return Container(
       margin: EdgeInsets.only(bottom: bottomPadding),
       child: Column(
@@ -39,62 +39,60 @@ class CustomTextField extends StatelessWidget {
         children: [
           Text(
             label,
-            style: _textTheme.labelSmall,
+            style: textTheme.labelSmall,
           ),
           const SizedBox(height: 12),
-          Container(
-            child: FormBuilderTextField(
-              name: fieldName,
-              style: _textTheme.titleLarge!.copyWith(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                  color: Color(0xFFFFFFFF)),
-              controller: controller,
-              maxLines: 1,
-              keyboardType: TextInputType.text,
-              obscureText: obscureText,
-              readOnly: readOnly,
-              validator: validator,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.red),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: clrScheme.primary),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: clrScheme.primary),
-                ),
-                disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: clrScheme.onSurface),
-                ),
-                focusedErrorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.red),
-                ),
-                fillColor: clrScheme.brightness == Brightness.dark
-                    ? Color(0xFF3A3B3C)
-                    : Colors.white,
-                filled: true,
-                contentPadding: const EdgeInsets.symmetric(
-                  vertical: 20,
-                  horizontal: 12,
-                ),
-                counterText: "",
-                hintText: hintText,
-                hintStyle: _textTheme.labelSmall,
-                suffixIcon: Icon(
-                  suffixIcon,
-                  size: 26,
-                  color: _textTheme.labelSmall!.color,
-                ),
+          FormBuilderTextField(
+            name: fieldName,
+            style: textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.w600,
+                fontSize: 14,
+                color: Color(0xFFFFFFFF)),
+            controller: controller,
+            maxLines: 1,
+            keyboardType: TextInputType.text,
+            obscureText: obscureText,
+            readOnly: readOnly,
+            validator: validator,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(color: Colors.red),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(color: clrScheme.primary),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(color: clrScheme.primary),
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(color: clrScheme.onSurface),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(color: Colors.red),
+              ),
+              fillColor: clrScheme.brightness == Brightness.dark
+                  ? Color(0xFF3A3B3C)
+                  : Colors.white,
+              filled: true,
+              contentPadding: const EdgeInsets.symmetric(
+                vertical: 20,
+                horizontal: 12,
+              ),
+              counterText: "",
+              hintText: hintText,
+              hintStyle: textTheme.labelSmall,
+              suffixIcon: Icon(
+                suffixIcon,
+                size: 26,
+                color: textTheme.labelSmall!.color,
               ),
             ),
           ),

@@ -47,6 +47,5 @@ class DatabaseServices {
   Future<void> removeToken() async {
     final instance = await SharedPreferences.getInstance();
     instance.remove(_token);
-    print("token removed");
   }
 }

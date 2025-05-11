@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kabar_news/features/auth/ui/screens/login_page.dart';
+import 'package:kabar_news/features/auth/ui/screens/signup_page.dart';
+import 'package:kabar_news/features/auth/ui/screens/success_page.dart';
 import 'package:kabar_news/features/bookmark/ui/pages/bookmark_page.dart';
 import 'package:kabar_news/features/dashboard/widgets/dashboard.dart';
 import 'package:kabar_news/features/details/ui/pages/details_page.dart';
+import 'package:kabar_news/features/explore/cubit/fetch_news_topic_cubit.dart';
 import 'package:kabar_news/features/explore/pages/explore_page.dart';
-import 'package:kabar_news/features/homepage/cubit/fetch_news_cubit.dart';
+import 'package:kabar_news/features/explore/pages/explore_topic_page.dart';
 import 'package:kabar_news/features/homepage/model/news.dart';
 import 'package:kabar_news/features/homepage/pages/homepage.dart';
 import 'package:kabar_news/features/homepage/repository/news_repository.dart';
 import 'package:kabar_news/features/profile/ui/pages/profile_page.dart';
-import 'package:kabar_news/features/search/cubit/search_new_cubit.dart';
-import 'package:kabar_news/features/search/ui/pages/search_page.dart';
+import 'package:kabar_news/features/settings/ui/pages/settings_pages.dart';
 import 'package:kabar_news/features/splash/ui/pages/splash_page.dart';
-import 'package:kabar_news/features/trending/cubit/fetch_trending_cubit.dart';
-import 'package:kabar_news/features/trending/ui/pages/trending_page.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/splash',
@@ -26,61 +27,85 @@ final GoRouter router = GoRouter(
         return const SplashPage();
       },
     ),
-    ShellRoute(
-        builder: (BuildContext context, GoRouterState state, Widget child) {
-          return Dashboard(
-            body: child,
-          );
-        },
-        routes: [
+    GoRoute(
+      path: '/login',
+      builder: (BuildContext context, GoRouterState state) {
+        return Builder(
+          builder: (context) => LoginPage(),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/signup',
+      builder: (BuildContext context, GoRouterState state) {
+        return Builder(
+          builder: (context) => SignupPage(),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/success',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SuccessPage();
+      },
+    ),
+    StatefulShellRoute.indexedStack(
+      builder: (context, state, child) => Dashboard(body: child),
+      branches: [
+        StatefulShellBranch(routes: [
           GoRoute(
-            path: "/home",
-            builder: (context, state) => BlocProvider(
-              create: (context) => FetchNewsCubit(
-                  newsRepository: context.read<NewsRepository>()),
-              child: const Homepage(),
-            ),
-          ),
-          GoRoute(
-            path: "/explore",
-            builder: (context, state) => const ExplorePage(),
-          ),
-          GoRoute(
-            path: "/bookmark",
-            builder: (context, state) => const BookmarkPage(),
-          ),
-          GoRoute(
-            path: "/profile",
-            builder: (context, state) => const ProfilePage(),
-          ),
+              path: '/home',
+              builder: (BuildContext context, GoRouterState state) {
+                return const Homepage();
+              }),
         ]),
-    GoRoute(
-      path: "/details",
-      builder: (context, state) {
-        final News news = state.extra as News;
-        return DetailsPage(news: news);
-      },
+        StatefulShellBranch(routes: [
+          GoRoute(
+              path: '/explore',
+              builder: (BuildContext context, GoRouterState state) {
+                return const ExplorePage();
+              }),
+        ]),
+        StatefulShellBranch(routes: [
+          GoRoute(
+              path: '/bookmark',
+              builder: (BuildContext context, GoRouterState state) {
+                return const BookmarkPage();
+              }),
+        ]),
+        StatefulShellBranch(routes: [
+          GoRoute(
+              path: '/profile',
+              builder: (BuildContext context, GoRouterState state) {
+                return const ProfilePage();
+              }),
+        ]),
+      ],
     ),
     GoRoute(
-      path: "/trending",
-      builder: (context, state) {
-        return BlocProvider(
-          create: (context) => FetchTrendingCubit(),
-          child: TrendingPage(),
-        );
-      },
-    ),
+        path: '/details',
+        builder: (BuildContext context, GoRouterState state) {
+          final News news = state.extra as News;
+          return DetailsPage(
+            news: news,
+          );
+        }),
     GoRoute(
-      path: "/search",
-      builder: (context, state) {
-        final query = state.extra as String;
-        return BlocProvider(
-          create: (context) => SearchNewCubit(),
-          child: SearchPage(
-            query: query,
-          ),
-        );
-      },
-    )
+        path: '/exploreTopic',
+        builder: (BuildContext context, GoRouterState state) {
+          final String query = state.extra as String;
+          return BlocProvider(
+            create: (context) => FetchNewsTopicCubit(
+                newsRepository: context.read<NewsRepository>()),
+            child: ExploreTopicPage(
+              query: query,
+            ),
+          );
+        }),
+    GoRoute(
+        path: '/settings',
+        builder: (BuildContext context, GoRouterState state) {
+          return const SettingsPages();
+        }),
   ],
 );

@@ -6,31 +6,29 @@ class CustomThemes {
     primaryColor: Color.fromRGBO(24, 119, 242, 1),
     scaffoldBackgroundColor: Colors.white,
     checkboxTheme: CheckboxThemeData(
-      fillColor: WidgetStatePropertyAll(Color.fromRGBO(24, 119, 242, 1)),
+      fillColor: WidgetStatePropertyAll(
+        Color.fromRGBO(24, 119, 242, 1),
+      ),
     ),
     textTheme: const TextTheme(
       displayLarge: TextStyle(
-        fontSize: 34,
-        fontWeight: FontWeight.bold,
+        fontSize: 48,
+        fontWeight: FontWeight.w700,
         color: Colors.black,
       ),
-      bodyMedium: TextStyle(
-        fontSize: 16,
-        color: Colors.black,
-      ),
-      labelLarge: TextStyle(
-        fontSize: 16,
+      displayMedium: TextStyle(
+          fontSize: 20, color: Color(0xFF4E4B66), letterSpacing: 0.12),
+      bodyMedium: TextStyle(fontSize: 16, color: Colors.black),
+      labelMedium: TextStyle(fontSize: 16, color: Color(0xFF667080)),
+      labelSmall: TextStyle(fontSize: 14, color: Color(0xFF4E4B66)),
+      headlineMedium: TextStyle(
+        fontSize: 24,
         color: Colors.black,
         fontWeight: FontWeight.w600,
+        letterSpacing: 0.12,
       ),
-      labelMedium: TextStyle(
-        fontSize: 16,
-        color: Color(0xFFFFFFFF),
-      ),
-      labelSmall: TextStyle(
-        fontSize: 14,
-        color: Color(0xFF4E4B66),
-      ),
+      headlineSmall: TextStyle(
+          fontSize: 14, color: Colors.black, fontWeight: FontWeight.w500),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -44,13 +42,13 @@ class CustomThemes {
         foregroundColor: Color.fromRGBO(24, 119, 242, 1),
       ),
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      fillColor: Colors.white,
-    ),
+    inputDecorationTheme: InputDecorationTheme(fillColor: Colors.white),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
-      iconTheme: IconThemeData(
+      iconTheme: IconThemeData(color: Colors.black),
+      titleTextStyle: TextStyle(
         color: Colors.black,
+        fontSize: 24,
       ),
     ),
   );
@@ -68,22 +66,19 @@ class CustomThemes {
         fontWeight: FontWeight.bold,
         color: Color(0xFFE4E6EB),
       ),
-      bodyMedium: TextStyle(
-        fontSize: 16,
-        color: Color(0xFF4E4B66),
-      ),
-      labelLarge: TextStyle(
-        fontSize: 16,
+      bodyMedium: TextStyle(fontSize: 16, color: Color(0xFFFFFFFF)),
+      labelMedium: TextStyle(fontSize: 16, color: Color(0xFF667080)),
+      labelSmall: TextStyle(fontSize: 14, color: Color(0xFFB0B3B8)),
+      headlineMedium: TextStyle(
+        fontSize: 24,
         color: Colors.white,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 0.12,
       ),
-      labelMedium: TextStyle(
-        fontSize: 16,
-        color: Color(0xFFFFFFFF),
-      ),
-      labelSmall: TextStyle(
+      headlineSmall: TextStyle(
         fontSize: 14,
-        color: Color(0xFFB0B3B8),
+        color: Colors.black,
+        fontWeight: FontWeight.w500,
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -91,9 +86,7 @@ class CustomThemes {
         backgroundColor: Color.fromRGBO(24, 119, 242, 1),
         foregroundColor: Colors.white,
         textStyle: const TextStyle(fontWeight: FontWeight.bold),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
     ),
     textButtonTheme: TextButtonThemeData(
@@ -102,14 +95,13 @@ class CustomThemes {
         textStyle: const TextStyle(letterSpacing: 0.12),
       ),
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      fillColor: Color(0xFF3A3B3C),
-    ),
+    inputDecorationTheme: InputDecorationTheme(fillColor: Color(0xFF3A3B3C)),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.black,
-      iconTheme: IconThemeData(
-        color: Colors.white,
-      ),
+      iconTheme: IconThemeData(color: Colors.white),
+    ),
+    iconTheme: IconThemeData(
+      color: Colors.white,
     ),
   );
 }
