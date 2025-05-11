@@ -6,7 +6,6 @@ import 'package:kabar_news/features/homepage/repository/news_repository.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kabar_news/features/auth/repository/user_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +23,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider(create: (context) => UserRepository()),
         RepositoryProvider(
           create: (context) => NewsRepository(),
         ),

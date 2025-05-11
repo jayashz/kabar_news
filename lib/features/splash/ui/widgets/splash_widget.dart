@@ -1,39 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:kabar_news/common/bloc/assets.dart';
-import 'package:kabar_news/common/bloc/common_state.dart';
-import 'package:kabar_news/features/auth/ui/screens/login_page.dart';
-import 'package:kabar_news/features/splash/cubit/startup_cubit.dart';
-import 'package:kabar_news/features/splash/model/startup_data.dart';
-import 'package:page_transition/page_transition.dart';
 
-class SplashWidget extends StatelessWidget {
+class SplashWidget extends StatefulWidget {
   const SplashWidget({super.key});
+
+  @override
+  State<SplashWidget> createState() => _SplashWidgetState();
+}
+
+class _SplashWidgetState extends State<SplashWidget>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 800),
+      vsync: this,
+    )..forward();
+
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeOutBack,
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocListener<StartupCubit, CommonState>(
-        listener: (context, state) {
-          if (state is CommonSuccessState<StartupData>) {
-            if (state.data.isLoggedIn == false) {
-              Navigator.push(
-                context,
-                PageTransition(
-                  type: PageTransitionType.fade,
-                  child: LoginPage(),
-                ),
-              );
-            } else {
-              context.go('/home');
-            }
-          }
-        },
-        child: Center(
-          child: Center(
-            child: Image.asset(Assets.logo),
-          ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: Center(
+        child: ScaleTransition(
+          scale: _animation,
+          child: Image.asset(Assets.logo),
         ),
       ),
     );
