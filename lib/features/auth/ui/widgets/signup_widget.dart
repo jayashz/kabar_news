@@ -134,7 +134,7 @@ class _LoginWidgetState extends State<SignupWidget> {
                               Fluttertoast.showToast(msg: e.code);
                             }
                           } catch (e) {
-                            print(e);
+                            Fluttertoast.showToast(msg: e.toString());
                           }
                           if (context.mounted &&
                               FirebaseAuth.instance.currentUser != null) {

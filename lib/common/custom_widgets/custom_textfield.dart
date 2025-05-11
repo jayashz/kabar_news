@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   final String label;
   final String hintText;
   final String fieldName;
   final TextInputType? textInputType;
   final double bottomPadding;
   final bool obscureText;
+  final bool toggleObscure;
   final bool readOnly;
   final IconData? suffixIcon;
   final TextEditingController? controller;
@@ -25,7 +26,26 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.controller,
     this.validator,
+    this.toggleObscure = false,
   });
+
+  @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  late bool _obsecureText;
+  @override
+  void initState() {
+    super.initState();
+    _obsecureText = widget.obscureText;
+  }
+
+  void toggleVis() {
+    setState(() {
+      _obsecureText = !_obsecureText;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,27 +53,24 @@ class CustomTextField extends StatelessWidget {
     final textTheme = theme.textTheme;
     final ColorScheme clrScheme = theme.colorScheme;
     return Container(
-      margin: EdgeInsets.only(bottom: bottomPadding),
+      margin: EdgeInsets.only(bottom: widget.bottomPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            label,
+            widget.label,
             style: textTheme.labelSmall,
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 4),
           FormBuilderTextField(
-            name: fieldName,
-            style: textTheme.titleLarge!.copyWith(
-                fontWeight: FontWeight.w600,
-                fontSize: 14,
-                color: Color(0xFFFFFFFF)),
-            controller: controller,
+            name: widget.fieldName,
+            style: Theme.of(context).textTheme.bodyMedium,
+            controller: widget.controller,
             maxLines: 1,
             keyboardType: TextInputType.text,
-            obscureText: obscureText,
-            readOnly: readOnly,
-            validator: validator,
+            obscureText: _obsecureText,
+            readOnly: widget.readOnly,
+            validator: widget.validator,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
@@ -87,13 +104,20 @@ class CustomTextField extends StatelessWidget {
                 horizontal: 12,
               ),
               counterText: "",
-              hintText: hintText,
+              hintText: widget.hintText,
               hintStyle: textTheme.labelSmall,
-              suffixIcon: Icon(
-                suffixIcon,
-                size: 26,
-                color: textTheme.labelSmall!.color,
-              ),
+              suffixIcon: widget.obscureText
+                  ? InkWell(
+                      onTap: toggleVis,
+                      child: _obsecureText
+                          ? Icon(
+                              Icons.remove_red_eye,
+                              size: 26,
+                              color: textTheme.labelSmall!.color,
+                            )
+                          : Icon(widget.suffixIcon),
+                    )
+                  : null,
             ),
           ),
         ],

@@ -11,7 +11,6 @@ class SettingsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
         iconTheme: Theme.of(context).appBarTheme.iconTheme,
         title: const Text('Settings'),
         centerTitle: true,

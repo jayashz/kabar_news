@@ -12,7 +12,6 @@ class ProfileWidget extends StatelessWidget {
       appBar: AppBar(
         title: Text('Profile'),
         centerTitle: true,
-        backgroundColor: Theme.of(context).primaryColor,
         iconTheme: Theme.of(context).appBarTheme.iconTheme,
         actions: [
           IconButton(
