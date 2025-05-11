@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kabar_news/common/bloc/assets.dart';
+import 'package:kabar_news/common/custom_widgets/custom_searchfield.dart';
+import 'package:kabar_news/common/router/route_path.dart';
 import 'package:kabar_news/features/explore/widgets/cards/topic_card.dart';
 
 class ExploreWidget extends StatelessWidget {
@@ -19,6 +22,14 @@ class ExploreWidget extends StatelessWidget {
                   .copyWith(fontSize: 34),
             ),
             centerTitle: false,
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: CustomSearchfield(onSubmitted: (query) {
+                context.push(RoutePath.search, extra: query);
+              }),
+            ),
           ),
           SliverToBoxAdapter(
             child: Padding(

@@ -3,23 +3,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kabar_news/common/bloc/common_state.dart';
 import 'package:kabar_news/common/custom_widgets/custom_searchfield.dart';
 import 'package:kabar_news/features/homepage/model/news.dart';
-import 'package:kabar_news/features/homepage/widgets/custom/custom_listtile.dart';
+
+import 'package:kabar_news/features/homepage/ui/widgets/custom/custom_tile.dart';
 import 'package:kabar_news/features/search/cubit/search_new_cubit.dart';
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({super.key});
+  final String query;
+  const SearchWidget({super.key, required this.query});
 
   @override
   Widget build(BuildContext context) {
+    context.read<SearchNewCubit>().fetchSearchNew(query);
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
             children: [
-              CustomSearchfield(onSubmitted: (query) {
-                context.read<SearchNewCubit>().fetchSearchNew(query);
-              },),
+              CustomSearchfield(
+                onSubmitted: (query) {
+                  context.read<SearchNewCubit>().fetchSearchNew(query);
+                },
+              ),
               Expanded(
                 child: BlocBuilder<SearchNewCubit, CommonState>(
                   builder: (context, state) {
@@ -34,7 +39,10 @@ class SearchWidget extends StatelessWidget {
                         itemCount: state.data.length,
                         padding: EdgeInsets.only(top: 10),
                         itemBuilder: (context, index) {
-                          return CustomListtile(news: state.data[index]);
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: CustomTile(news: state.data[index]),
+                          );
                         },
                       );
                     }

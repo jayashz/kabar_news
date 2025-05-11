@@ -9,7 +9,11 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<SearchNewCubit>().fetchSearchNew(query);
-    return const SearchWidget();
+    return BlocProvider(
+      create: (context) => SearchNewCubit(),
+      child: SearchWidget(
+        query: query,
+      ),
+    );
   }
 }

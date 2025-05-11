@@ -11,9 +11,10 @@ import 'package:kabar_news/features/explore/cubit/fetch_news_topic_cubit.dart';
 import 'package:kabar_news/features/explore/pages/explore_page.dart';
 import 'package:kabar_news/features/explore/pages/explore_topic_page.dart';
 import 'package:kabar_news/features/homepage/model/news.dart';
-import 'package:kabar_news/features/homepage/pages/homepage.dart';
+import 'package:kabar_news/features/homepage/ui/pages/homepage.dart';
 import 'package:kabar_news/features/homepage/repository/news_repository.dart';
 import 'package:kabar_news/features/profile/ui/pages/profile_page.dart';
+import 'package:kabar_news/features/search/ui/pages/search_page.dart';
 import 'package:kabar_news/features/settings/ui/pages/settings_pages.dart';
 import 'package:kabar_news/features/splash/ui/pages/splash_page.dart';
 
@@ -107,5 +108,14 @@ final GoRouter router = GoRouter(
         builder: (BuildContext context, GoRouterState state) {
           return const SettingsPages();
         }),
+    GoRoute(
+      path: "/search",
+      builder: (context, state) {
+        final query = state.extra as String;
+        return SearchPage(
+          query: query,
+        );
+      },
+    ),
   ],
 );

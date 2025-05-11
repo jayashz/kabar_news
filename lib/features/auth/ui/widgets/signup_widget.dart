@@ -10,7 +10,7 @@ import 'package:kabar_news/common/custom_widgets/custom_textfield.dart';
 import 'package:kabar_news/features/auth/cubit/login_cubit.dart';
 import 'package:kabar_news/features/auth/cubit/signup_cubit.dart';
 import 'package:kabar_news/features/auth/repository/user_repository.dart';
-import 'package:kabar_news/features/homepage/pages/homepage.dart';
+import 'package:kabar_news/features/homepage/ui/pages/homepage.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SignupWidget extends StatefulWidget {

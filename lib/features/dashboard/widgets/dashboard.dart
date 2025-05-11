@@ -58,7 +58,7 @@ class _DashboardState extends State<Dashboard> {
         ],
         elevation: 0,
         currentIndex: _selectedIndex,
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.grey,

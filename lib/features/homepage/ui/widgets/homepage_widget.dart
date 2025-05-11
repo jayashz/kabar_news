@@ -4,7 +4,7 @@ import 'package:kabar_news/common/bloc/assets.dart';
 import 'package:kabar_news/common/custom_widgets/keep_page_alive.dart';
 import 'package:kabar_news/features/homepage/cubit/fetch_news_cubit.dart';
 import 'package:kabar_news/features/homepage/repository/news_repository.dart';
-import 'package:kabar_news/features/homepage/widgets/custom/home_content.dart';
+import 'package:kabar_news/features/homepage/ui/widgets/custom/home_content.dart';
 
 class HomepageWidget extends StatefulWidget {
   const HomepageWidget({super.key});
@@ -49,6 +49,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
           ],
+          
           bottom: TabBar(
             isScrollable: true,
             controller: _tabController,

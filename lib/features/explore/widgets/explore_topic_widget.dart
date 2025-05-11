@@ -6,8 +6,8 @@ import 'package:kabar_news/common/bloc/common_state.dart';
 import 'package:kabar_news/common/custom_widgets/skeletons/tile_skeleton.dart';
 import 'package:kabar_news/features/explore/cubit/fetch_news_topic_cubit.dart';
 import 'package:kabar_news/features/homepage/model/news.dart';
-import 'package:kabar_news/features/homepage/widgets/custom/custom_tile.dart';
-import 'package:kabar_news/features/homepage/widgets/custom/highlight_tile.dart';
+import 'package:kabar_news/features/homepage/ui/widgets/custom/custom_tile.dart';
+import 'package:kabar_news/features/homepage/ui/widgets/custom/highlight_tile.dart';
 
 
 class ExploreTopicWidget extends StatefulWidget {

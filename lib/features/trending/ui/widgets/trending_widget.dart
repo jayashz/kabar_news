@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kabar_news/common/bloc/common_state.dart';
 import 'package:kabar_news/features/homepage/model/news.dart';
-import 'package:kabar_news/features/homepage/widgets/custom/trending_cards.dart';
+import 'package:kabar_news/features/homepage/ui/widgets/custom/trending_cards.dart';
 import 'package:kabar_news/features/trending/cubit/fetch_trending_cubit.dart';
 
 class TrendingWidget extends StatelessWidget {

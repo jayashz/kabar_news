@@ -10,8 +10,8 @@ import 'package:kabar_news/common/custom_widgets/skeletons/tile_skeleton.dart';
 import 'package:kabar_news/common/router/route_path.dart';
 import 'package:kabar_news/features/homepage/cubit/fetch_news_cubit.dart';
 import 'package:kabar_news/features/homepage/model/news.dart';
-import 'package:kabar_news/features/homepage/widgets/custom/custom_tile.dart';
-import 'package:kabar_news/features/homepage/widgets/custom/highlight_tile.dart';
+import 'package:kabar_news/features/homepage/ui/widgets/custom/custom_tile.dart';
+import 'package:kabar_news/features/homepage/ui/widgets/custom/highlight_tile.dart';
 
 class HomeContent extends StatefulWidget {
   final String query;

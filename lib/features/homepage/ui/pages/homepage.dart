@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kabar_news/features/homepage/widgets/homepage_widget.dart';
+import 'package:kabar_news/features/homepage/ui/widgets/homepage_widget.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
