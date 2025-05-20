@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kabar_news/common/bloc/assets.dart';
 import 'package:kabar_news/common/router/route_path.dart';
+import 'package:kabar_news/features/settings/ui/widgets/dialog/show_theme_dialog.dart';
 
 class SettingsWidget extends StatelessWidget {
   const SettingsWidget({super.key});
@@ -57,7 +58,7 @@ class SettingsWidget extends StatelessWidget {
           SettingsTile(
             icon: Icons.color_lens,
             title: 'Theme',
-            onTap: () {},
+            onTap: () => showThemeDialog(context),
           ),
           SettingsTile(
             icon: Icons.lock,
@@ -113,13 +114,7 @@ class SettingsTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: Icon(icon, color: iconColor ?? Colors.blue),
-      title: Text(
-        title,
-        style: TextStyle(
-          fontSize: 16,
-          color: textColor ?? Colors.black,
-        ),
-      ),
+      title: Text(title, style: Theme.of(context).textTheme.headlineSmall!),
       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
       onTap: onTap,
     );

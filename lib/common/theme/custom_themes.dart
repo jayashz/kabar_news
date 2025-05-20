@@ -77,7 +77,7 @@ class CustomThemes {
       ),
       headlineSmall: TextStyle(
         fontSize: 14,
-        color: Colors.black,
+        color: Colors.white,
         fontWeight: FontWeight.w500,
       ),
     ),
