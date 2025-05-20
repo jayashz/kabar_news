@@ -1,5 +1,10 @@
+import 'package:uuid/uuid.dart';
+
+var uuid = Uuid();
+
 class News {
   Source source;
+  final String id;
   final String? author;
   final String? title;
   final String? description;
@@ -9,6 +14,7 @@ class News {
   final String? content;
 
   News({
+    String? id,
     required this.source,
     required this.author,
     required this.title,
@@ -17,10 +23,11 @@ class News {
     this.urlToImage,
     required this.publishedAt,
     required this.content,
-  });
+  }) : id = id ?? uuid.v4();
 
   factory News.fromJson(Map<String, dynamic> json) {
     return News(
+      id: json["id"],
       source: Source.fromJson(json["source"]),
       author: json["author"],
       title: json["title"],
@@ -33,6 +40,7 @@ class News {
   }
 
   Map<String, dynamic> toJson() => {
+        "id": id,
         "source": source.toJson(),
         "author": author,
         "title": title,

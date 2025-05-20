@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:kabar_news/common/bloc/assets.dart';
+import 'package:kabar_news/features/bookmark/repository/bookmark_repository.dart';
 import 'package:kabar_news/features/homepage/model/news.dart';
 
 class DetailsWidget extends StatelessWidget {
@@ -10,6 +14,7 @@ class DetailsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final BookmarkRepository bookmarkRepo = BookmarkRepository();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -19,6 +24,48 @@ class DetailsWidget extends StatelessWidget {
           },
         ),
         actions: [
+          StreamBuilder<List<String>>(
+            stream: bookmarkRepo.streamBookmakIds(),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return const IconButton(
+                  onPressed: null,
+                  icon: Icon(Icons.bookmark_border_rounded),
+                );
+              }
+
+              final isBookmarked = snapshot.data!.contains(news.id);
+
+              return IconButton(
+                onPressed: () async {
+                  final uid = FirebaseAuth.instance.currentUser?.uid;
+                  if (uid == null) return;
+
+                  final docRef = FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(uid)
+                      .collection('bookmarks')
+                      .doc(news.id);
+
+                  try {
+                    if (isBookmarked) {
+                      await docRef.delete();
+                      Fluttertoast.showToast(msg: "Removed from bookmark");
+                    } else {
+                      await docRef.set(news.toJson());
+                      Fluttertoast.showToast(msg: "Added to bookmark");
+                    }
+                  } catch (e) {
+                    print(e);
+                    Fluttertoast.showToast(msg: "Error: ${e.toString()}");
+                  }
+                },
+                icon: Icon(
+                  isBookmarked ? Icons.bookmark : Icons.bookmark_border_rounded,
+                ),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.share),
             onPressed: () {

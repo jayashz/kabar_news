@@ -49,13 +49,13 @@ class _HomepageWidgetState extends State<HomepageWidget>
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
           ],
-          
           bottom: TabBar(
             isScrollable: true,
             controller: _tabController,
             onTap: (v) {},
             labelColor: Colors.grey,
             unselectedLabelColor: Colors.grey,
+            tabAlignment: TabAlignment.start,
             indicatorColor: Theme.of(context).primaryColor,
             tabs: [
               Tab(

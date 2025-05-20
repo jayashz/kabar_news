@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kabar_news/common/custom_themes.dart';
 import 'package:kabar_news/common/router/app_router.dart';
+import 'package:kabar_news/features/bookmark/repository/bookmark_repository.dart';
 import 'package:kabar_news/features/homepage/repository/news_repository.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,9 @@ class MyApp extends StatelessWidget {
         RepositoryProvider(
           create: (context) => NewsRepository(),
         ),
+        RepositoryProvider(
+          create: (context) => BookmarkRepository(),
+        )
       ],
       child: MaterialApp.router(
         theme: CustomThemes.lightTheme,
