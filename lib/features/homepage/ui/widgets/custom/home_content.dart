@@ -21,7 +21,8 @@ class HomeContent extends StatefulWidget {
   State<HomeContent> createState() => _HomeContentState();
 }
 
-class _HomeContentState extends State<HomeContent> {
+class _HomeContentState extends State<HomeContent>
+    with AutomaticKeepAliveClientMixin {
   List<int> randomIndex = [];
   int temp = 0;
   @override
@@ -34,7 +35,11 @@ class _HomeContentState extends State<HomeContent> {
   }
 
   @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return RefreshIndicator(
       color: Theme.of(context).primaryColor,
       onRefresh: () async {

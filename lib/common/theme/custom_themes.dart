@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomThemes {
   static ThemeData lightTheme = ThemeData(
@@ -10,7 +11,7 @@ class CustomThemes {
         Color.fromRGBO(24, 119, 242, 1),
       ),
     ),
-    textTheme: const TextTheme(
+    textTheme: GoogleFonts.rubikTextTheme(const TextTheme(
       displayLarge: TextStyle(
         fontSize: 48,
         fontWeight: FontWeight.w700,
@@ -29,7 +30,7 @@ class CustomThemes {
       ),
       headlineSmall: TextStyle(
           fontSize: 14, color: Colors.black, fontWeight: FontWeight.w500),
-    ),
+    )),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: Color.fromRGBO(24, 119, 242, 1),
@@ -60,7 +61,7 @@ class CustomThemes {
     checkboxTheme: CheckboxThemeData(
       fillColor: WidgetStateProperty.all(Color.fromRGBO(24, 119, 242, 1)),
     ),
-    textTheme: const TextTheme(
+    textTheme: GoogleFonts.rubikTextTheme(const TextTheme(
       displayLarge: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,
@@ -80,7 +81,7 @@ class CustomThemes {
         color: Colors.white,
         fontWeight: FontWeight.w500,
       ),
-    ),
+    )),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: Color.fromRGBO(24, 119, 242, 1),

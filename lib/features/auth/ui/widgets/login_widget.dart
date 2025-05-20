@@ -48,7 +48,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     "Welcome back you've \nbeen missed",
                     style: Theme.of(context).textTheme.displayMedium,
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 20),
                   CustomTextField(
                     label: "Username*",
                     fieldName: "email",
@@ -146,79 +146,79 @@ class _LoginWidgetState extends State<LoginWidget> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: Text("or continue with",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.labelSmall),
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: TextButton.icon(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            backgroundColor: WidgetStateProperty.all(
-                              Color(0xFFEEF1F4),
-                            ),
-                            shape: WidgetStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          label: Text(
-                            "Google",
-                            style: Theme.of(context).textTheme.labelMedium,
-                          ),
-                          icon: Image.asset(
-                            Assets.google,
-                            height: 20,
-                            width: 20,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: TextButton.icon(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            backgroundColor: WidgetStateProperty.all(
-                              Color(0xFFEEF1F4),
-                            ),
-                            shape: WidgetStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          label: Text(
-                            "Facebook",
-                            style: Theme.of(context).textTheme.labelMedium,
-                          ),
-                          icon: Image.asset(
-                            Assets.facebook,
-                            height: 20,
-                            width: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  // const SizedBox(
+                  //   height: 16,
+                  // ),
+                  // SizedBox(
+                  //   width: double.infinity,
+                  //   child: Text("or continue with",
+                  //       textAlign: TextAlign.center,
+                  //       style: Theme.of(context).textTheme.labelSmall),
+                  // ),
+                  // const SizedBox(
+                  //   height: 16,
+                  // ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Expanded(
+                  //       child: TextButton.icon(
+                  //         onPressed: () {},
+                  //         style: ButtonStyle(
+                  //           backgroundColor: WidgetStateProperty.all(
+                  //             Color(0xFFEEF1F4),
+                  //           ),
+                  //           shape: WidgetStateProperty.all(
+                  //             RoundedRectangleBorder(
+                  //               borderRadius: BorderRadius.circular(8),
+                  //             ),
+                  //           ),
+                  //         ),
+                  //         label: Text(
+                  //           "Google",
+                  //           style: Theme.of(context).textTheme.labelMedium,
+                  //         ),
+                  //         icon: Image.asset(
+                  //           Assets.google,
+                  //           height: 20,
+                  //           width: 20,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     const SizedBox(
+                  //       width: 10,
+                  //     ),
+                  //     Expanded(
+                  //       child: TextButton.icon(
+                  //         onPressed: () {},
+                  //         style: ButtonStyle(
+                  //           backgroundColor: WidgetStateProperty.all(
+                  //             Color(0xFFEEF1F4),
+                  //           ),
+                  //           shape: WidgetStateProperty.all(
+                  //             RoundedRectangleBorder(
+                  //               borderRadius: BorderRadius.circular(8),
+                  //             ),
+                  //           ),
+                  //         ),
+                  //         label: Text(
+                  //           "Facebook",
+                  //           style: Theme.of(context).textTheme.labelMedium,
+                  //         ),
+                  //         icon: Image.asset(
+                  //           Assets.facebook,
+                  //           height: 20,
+                  //           width: 20,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "dont have an account?",
+                        "Don't have an account?",
                         style: Theme.of(context).textTheme.labelSmall,
                       ),
                       TextButton(

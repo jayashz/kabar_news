@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kabar_news/common/bloc/assets.dart';
-import 'package:kabar_news/common/custom_widgets/keep_page_alive.dart';
 import 'package:kabar_news/features/homepage/cubit/fetch_news_cubit.dart';
 import 'package:kabar_news/features/homepage/repository/news_repository.dart';
 import 'package:kabar_news/features/homepage/ui/widgets/custom/home_content.dart';
@@ -82,62 +81,50 @@ class _HomepageWidgetState extends State<HomepageWidget>
         body: TabBarView(
           controller: _tabController,
           children: [
-            KeepAliveWrapper(
-              child: BlocProvider(
-                create: (context) => FetchNewsCubit(
-                    newsRepository: context.read<NewsRepository>())
-                  ..fetchNews("India"),
-                child: HomeContent(
-                  query: "India",
-                ),
+            BlocProvider(
+              create: (context) =>
+                  FetchNewsCubit(newsRepository: context.read<NewsRepository>())
+                    ..fetchNews("India"),
+              child: HomeContent(
+                query: "India",
               ),
             ),
-            KeepAliveWrapper(
-              child: BlocProvider(
-                create: (context) => FetchNewsCubit(
-                    newsRepository: context.read<NewsRepository>())
-                  ..fetchNews("Bangladesh"),
-                child: HomeContent(
-                  query: "Bangladesh",
-                ),
+            BlocProvider(
+              create: (context) =>
+                  FetchNewsCubit(newsRepository: context.read<NewsRepository>())
+                    ..fetchNews("Bangladesh"),
+              child: HomeContent(
+                query: "Bangladesh",
               ),
             ),
-            KeepAliveWrapper(
-              child: BlocProvider(
-                create: (context) => FetchNewsCubit(
-                    newsRepository: context.read<NewsRepository>())
-                  ..fetchNews("Nepal"),
-                child: HomeContent(query: "Nepal"),
+            BlocProvider(
+              create: (context) =>
+                  FetchNewsCubit(newsRepository: context.read<NewsRepository>())
+                    ..fetchNews("Nepal"),
+              child: HomeContent(query: "Nepal"),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  FetchNewsCubit(newsRepository: context.read<NewsRepository>())
+                    ..fetchNews("Bhutan"),
+              child: HomeContent(
+                query: "Bhutan",
               ),
             ),
-            KeepAliveWrapper(
-              child: BlocProvider(
-                create: (context) => FetchNewsCubit(
-                    newsRepository: context.read<NewsRepository>())
-                  ..fetchNews("Bhutan"),
-                child: HomeContent(
-                  query: "Bhutan",
-                ),
+            BlocProvider(
+              create: (context) =>
+                  FetchNewsCubit(newsRepository: context.read<NewsRepository>())
+                    ..fetchNews("Uk"),
+              child: HomeContent(
+                query: "Uk",
               ),
             ),
-            KeepAliveWrapper(
-              child: BlocProvider(
-                create: (context) => FetchNewsCubit(
-                    newsRepository: context.read<NewsRepository>())
-                  ..fetchNews("Uk"),
-                child: HomeContent(
-                  query: "Uk",
-                ),
-              ),
-            ),
-            KeepAliveWrapper(
-              child: BlocProvider(
-                create: (context) => FetchNewsCubit(
-                    newsRepository: context.read<NewsRepository>())
-                  ..fetchNews("Usa"),
-                child: HomeContent(
-                  query: "Usa",
-                ),
+            BlocProvider(
+              create: (context) =>
+                  FetchNewsCubit(newsRepository: context.read<NewsRepository>())
+                    ..fetchNews("Usa"),
+              child: HomeContent(
+                query: "Usa",
               ),
             ),
           ],

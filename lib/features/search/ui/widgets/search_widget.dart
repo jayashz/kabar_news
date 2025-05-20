@@ -13,7 +13,6 @@ class SearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<SearchNewCubit>().fetchSearchNew(query);
     return Scaffold(
       body: SafeArea(
         child: Padding(

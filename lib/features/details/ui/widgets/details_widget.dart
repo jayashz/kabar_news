@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:kabar_news/common/bloc/assets.dart';
 import 'package:kabar_news/features/bookmark/repository/bookmark_repository.dart';
 import 'package:kabar_news/features/homepage/model/news.dart';
+import 'package:share_plus/share_plus.dart';
 
 class DetailsWidget extends StatelessWidget {
   final News news;
@@ -56,7 +57,7 @@ class DetailsWidget extends StatelessWidget {
                       Fluttertoast.showToast(msg: "Added to bookmark");
                     }
                   } catch (e) {
-                    print(e);
+
                     Fluttertoast.showToast(msg: "Error: ${e.toString()}");
                   }
                 },
@@ -69,7 +70,8 @@ class DetailsWidget extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.share),
             onPressed: () {
-              // Implement share functionality
+              final params = ShareParams(uri: Uri.parse(news.url!));
+              SharePlus.instance.share(params);
             },
           ),
         ],
