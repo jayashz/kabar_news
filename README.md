@@ -25,7 +25,9 @@ Kabar is a modern, clean, and lightweight news app built with Flutter. It delive
 
 | Home | Article | Search |
 |------|---------|--------|
-| ![Home](screenshots/home.png) | ![Article](screenshots/article.png) | ![Search](screenshots/search.png) |
+| <img width="434" alt="Screenshot 2025-05-21 at 2 05 03 PM" src="https://github.com/user-attachments/assets/aa283e9f-f0af-415f-bda6-a04ec86c1805" />
+ |  <img width="492" alt="Screenshot 2025-05-21 at 2 06 11 PM" src="https://github.com/user-attachments/assets/9c8e9064-0ae0-452e-9f18-6d436b638fce" />
+| <img width="492" alt="Screenshot 2025-05-21 at 2 06 53 PM" src="https://github.com/user-attachments/assets/817a16a4-49cf-4f83-a8fe-b6e6bd7872d2" /> |
 
 > *(Add your actual screenshots in a `screenshots/` folder for proper preview)*
 
