@@ -3,9 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:gap/gap.dart';
+
 import 'package:go_router/go_router.dart';
-import 'package:kabar_news/common/bloc/assets.dart';
+
 import 'package:kabar_news/common/custom_widgets/custom_textfield.dart';
 import 'package:kabar_news/common/router/route_path.dart';
 
@@ -27,7 +27,7 @@ class _LoginWidgetState extends State<SignupWidget> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+          padding: const EdgeInsets.all(24),
           child: SingleChildScrollView(
             child: FormBuilder(
               key: _formKey,

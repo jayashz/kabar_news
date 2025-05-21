@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kabar_news/common/bloc/assets.dart';
 import 'package:kabar_news/common/custom_widgets/custom_textfield.dart';
 import 'package:kabar_news/common/router/route_path.dart';
 
