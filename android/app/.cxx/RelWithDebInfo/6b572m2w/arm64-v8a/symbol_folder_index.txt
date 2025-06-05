@@ -1,0 +1,1 @@
+/Users/jay/Flutter learnings/kabar_news/build/app/intermediates/cxx/RelWithDebInfo/6b572m2w/obj/arm64-v8a

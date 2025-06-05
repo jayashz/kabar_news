@@ -1,0 +1,2 @@
+/Users/jay/Flutter learnings/kabar_news/android/app/.cxx/RelWithDebInfo/6b572m2w/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/jay/Flutter learnings/kabar_news/android/app/.cxx/RelWithDebInfo/6b572m2w/armeabi-v7a/CMakeFiles/rebuild_cache.dir

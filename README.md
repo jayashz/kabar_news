@@ -23,10 +23,9 @@ Kabar is a modern, clean, and lightweight news app built with Flutter. It delive
 
 ## 📸 Screenshots
 
-| Home | Article | Search |
-|------|---------|--------|
-| <img width="434" alt="Screenshot 2025-05-21 at 2 05 03 PM" src="https://github.com/user-attachments/assets/aa283e9f-f0af-415f-bda6-a04ec86c1805" />| <img width="492" alt="Screenshot 2025-05-21 at 2 06 11 PM" src="https://github.com/user-attachments/assets/9c8e9064-0ae0-452e-9f18-6d436b638fce" />| <img width="492" alt="Screenshot 2025-05-21 at 2 06 53 PM" src="https://github.com/user-attachments/assets/817a16a4-49cf-4f83-a8fe-b6e6bd7872d2"/>|
-
+| Home                                                                                                                                                | Article                                                                                                                                             | Search                                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img width="434" alt="Screenshot 2025-05-21 at 2 05 03 PM" src="https://github.com/user-attachments/assets/aa283e9f-f0af-415f-bda6-a04ec86c1805" /> | <img width="492" alt="Screenshot 2025-05-21 at 2 06 11 PM" src="https://github.com/user-attachments/assets/9c8e9064-0ae0-452e-9f18-6d436b638fce" /> | <img width="492" alt="Screenshot 2025-05-21 at 2 06 53 PM" src="https://github.com/user-attachments/assets/817a16a4-49cf-4f83-a8fe-b6e6bd7872d2"/> |
 
 ## 🧑‍💻 Getting Started
 
@@ -52,7 +51,7 @@ Kabar is a modern, clean, and lightweight news app built with Flutter. It delive
    ```bash
    flutter run
    ```
-### Demo
-![0521](https://github.com/user-attachments/assets/32cc14f0-2dd3-4546-9964-cee8c5d08d39)
 
-   
+### Demo
+
+![0521](https://github.com/user-attachments/assets/32cc14f0-2dd3-4546-9964-cee8c5d08d39)
